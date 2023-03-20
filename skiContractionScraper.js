@@ -7,7 +7,7 @@ function nextLayer(cursor) {
       "mode": "cors",
       "credentials": "omit"
     }).then(re=>re.json()).then(re => {
-        console.log(re);
+        //console.log(re);
         var comments = re.data.feedbackForAuthor.feedback;
         for (var i = comments.length; i--;) {
             var comment = comments[i].content;
@@ -26,7 +26,7 @@ function nextLayer(cursor) {
             } else console.log("Ignoring: " + comments[i].content)
             
         }
-        console.log(Object.keys(contractions));
+        console.log("Current contractinos: " + JSON.stringify(Object.keys(contractions)));
         
         var cursor = re.data.feedbackForAuthor.cursor;
         if (cursor) nextLayer(cursor);
